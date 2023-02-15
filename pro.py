@@ -1,4 +1,5 @@
 from gtts import gTTS
+import pyttsx3
 import speech_recognition as sr
 
 import datetime
@@ -17,11 +18,24 @@ import os
 import pyglet
 from time import sleep
 
+from pywikihow import search_wikihow
+
+import wikipedia
+
 language= "en"
 tlds = "co.in"    
 
 maplink = "https://maps.google.com/?q="
 
+
+engine=pyttsx3.init()
+voices = engine.getProperty('voices')
+
+def speak2(audio):
+    engine.setProperty("rate",188)
+    engine.say(audio)
+
+    engine.runAndWait()
 
 
 def speak(audio):
@@ -64,7 +78,7 @@ def takeCommand():
         print("Listening...")
         r.pause_threshold = 1
         r.adjust_for_ambient_noise(source)
-        audio = r.listen(source,1,7)
+        audio = r.listen(source,0,7)
 
 
     try:
@@ -93,11 +107,8 @@ if __name__ == "__main__":
 
         elif 'who are you' in query:
             
-            speak("I am Rambhau. ")
-            speak("Created By Prathamesh Lohar.")
-            speak("Aniket Madhurkar .")
-            speak("And  Kedaar  Tandalee .")
-            speak("As  An,  Final  Year  Project.")
+            speak("I am AI Bassed Smart Receptionies . Created By Prathmesh Lohar.Aniket Madhurkar, And Kedar Tandaale. As  An,  Final  Year  Project.")
+ 
 
         elif 'play national anthem' in query:
 
@@ -148,12 +159,33 @@ if __name__ == "__main__":
             im.show()
 
             speak("Scan The QR Code. ")
-            speak("And Viste Webiste.")
+            speak("And Viste Website.")
 
         elif 'exit' in query:
             exit(0)
 
         elif 'favourite food' in query:
             speak("chiken biryani")
+
+        elif 'question' in query:
+            
+            speak2("ok what is your question ? ")
+            question = takeCommand()
+            speak2("please wait")
+            max_res=1
+            ans = search_wikihow(question,max_res)
+            assert len(ans) == 1
+            ans[0].print()
+            speak2(ans[0].summary)
+
+        elif 'wikipedia' in query:
+            
+            speak('Searching Wikipedia please wait...')
+            query = query.replace("wikipedia", "")
+            results = wikipedia.summary(query, sentences=2)
+            speak("According to Wikipedia")
+            print(results)
+            speak(results)
+
 
 
