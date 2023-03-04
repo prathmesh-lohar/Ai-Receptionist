@@ -92,6 +92,7 @@ def takeCommand():
         print("Say that again please...")
         return "None"
     return query
+    
 
 
 if __name__ == "__main__":
@@ -118,7 +119,7 @@ if __name__ == "__main__":
             speak("2.")
             speak("1.")
         
-            m=m=vlc.MediaPlayer("/home/prathmesh/Downloads/jangan.mp3")
+            m=vlc.MediaPlayer("/home/prathmesh/Downloads/jangan.mp3")
             m.play()
 
         elif 'where is it department' in query:
@@ -186,6 +187,15 @@ if __name__ == "__main__":
             speak("According to Wikipedia")
             print(results)
             speak(results)
+
+        elif 'news from university' in query:
+            from scrape import dbatu
+
+            result = dbatu.get_news()
+            print(result)
+
+            speak(result)
+
 
 
 
