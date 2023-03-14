@@ -22,6 +22,10 @@ from pywikihow import search_wikihow
 
 import wikipedia
 
+from neurons import chat
+
+
+
 language= "en"
 tlds = "co.in"    
 
@@ -106,10 +110,6 @@ if __name__ == "__main__":
             strt = datetime.datetime.now().strftime("%H:%M")
             speak(f"Sir, the time is {strt}")
 
-        elif 'who are you' in query:
-            
-            speak("I am AI Bassed Smart Receptionies . Created By Prathmesh Lohar.Aniket Madhurkar, And Kedar Tandaale. As  An,  Final  Year  Project.")
- 
 
         elif 'play national anthem' in query:
 
@@ -195,6 +195,12 @@ if __name__ == "__main__":
             print(result)
 
             speak(result)
+        else:
+            neuro = chat.neuro(query)
+            print(neuro)
+            speak(neuro)
+            
+
 
 
 

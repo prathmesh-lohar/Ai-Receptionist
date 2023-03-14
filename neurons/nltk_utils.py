@@ -14,6 +14,8 @@ def tokenize(sentence):
     return nltk.word_tokenize(sentence)
 
 
+
+
 def stem(word):
     """
     stemming = find the root form of the word

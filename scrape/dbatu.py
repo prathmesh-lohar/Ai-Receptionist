@@ -17,3 +17,5 @@ def get_news():
 
 
     return(str(news))
+
+print(get_news())

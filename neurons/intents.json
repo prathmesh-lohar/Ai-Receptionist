@@ -17,7 +17,6 @@
                 "Hi there, how can I help?"
             ]
         },
-       
         {
             "tag": "goodbye",
             "patterns": [
@@ -32,6 +31,19 @@
             ]
         },
         {
+            "tag": "creator",
+            "patterns": [
+                "who are you",
+                "who you",
+                "what is your name"
+            ],
+            "responses": [
+                "I am AI Bassed Smart Receptionies . Created By Prathmesh Lohar.Aniket Madhurkar, And Kedar Tandaale. As  An,  Final  Year  Project under the guidance of D.V Biradar Sir",
+                "your Receptionies created by prathmesh,aniket and kedar under the guidance of D.V Biradar Sir",
+                "Receptionies from IT Department under the guidance of D.V Biradar Sir"
+            ]
+        },
+        {
             "tag": "thanks",
             "patterns": [
                 "Thanks",
@@ -43,6 +55,21 @@
                 "Happy to help!",
                 "Any time!",
                 "My pleasure"
+            ]
+        },
+        {
+            "tag": "creator",
+            "patterns": [
+              
+                "who is creator of you",
+                "your developer",
+                "who made you",
+                "who created you"
+            ],
+            "responses": [
+                "I am AI Bassed Smart Receptionies . Created By Prathmesh Lohar.Aniket Madhurkar, And Kedar Tandaale. As  An,  Final  Year  Project under the guidance of D.V Biradar Sir",
+                "your Receptionies created by prathmesh,aniket and kedar under the guidance of D.V Biradar Sir"
+           
             ]
         }
     ]
