@@ -1,8 +1,8 @@
 from gtts import gTTS
 import pyttsx3
 import speech_recognition as sr
-
 import datetime
+from operations import basic
 
 import vlc
 
@@ -19,8 +19,6 @@ import pyglet
 from time import sleep
 
 from pywikihow import search_wikihow
-
-import wikipedia
 
 from neurons import chat
 
@@ -107,7 +105,7 @@ if __name__ == "__main__":
 
 
         if 'the time' in query:
-            strt = datetime.datetime.now().strftime("%H:%M")
+            strt = basic.time()
             speak(f"Sir, the time is {strt}")
 
 
@@ -158,7 +156,7 @@ if __name__ == "__main__":
             im = Image.open("/home/prathmesh/Desktop/project/myqr.png")
 
             im.show()
-
+           
             speak("Scan The QR Code. ")
             speak("And Viste Website.")
 
@@ -179,14 +177,11 @@ if __name__ == "__main__":
             ans[0].print()
             speak2(ans[0].summary)
 
-        elif 'wikipedia' in query:
-            
+        elif 'wikipedia' in query:    
             speak('Searching Wikipedia please wait...')
-            query = query.replace("wikipedia", "")
-            results = wikipedia.summary(query, sentences=2)
+            wiki = basic.wiki(query)
             speak("According to Wikipedia")
-            print(results)
-            speak(results)
+            speak(wiki)
 
         elif 'news from university' in query:
             from scrape import dbatu
@@ -195,11 +190,18 @@ if __name__ == "__main__":
             print(result)
 
             speak(result)
+            
+        
         else:
-            neuro = chat.neuro(query)
+            neuro = str(chat.neuro(query))
             print(neuro)
             speak(neuro)
             
+            # if neuro == 'I do not understand...' :
+            #     wiki = basic.wiki(query)
+            #     speak(wiki)
+            
+
 
 
 
